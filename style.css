@@ -517,6 +517,80 @@ body.menu-open::before {
     backdrop-filter: blur(5px);
 }
 
+/* Popup Modal Styles */
+.popup-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.popup-modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: var(--second-background);
+    padding: 2em;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.popup-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.popup-close:hover {
+    opacity: 1;
+}
+
+.popup-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5em;
+}
+
+.popup-icon.success {
+    background-image: var(--text-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popup-icon.error {
+    color: #ff4444;
+}
+
+.popup-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+    background-image: var(--text-gradient);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.popup-message {
+    font-size: 1rem;
+    opacity: 0.8;
+    color: white;
+}
+
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
 
