@@ -4,13 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const navMenu = document.getElementById("navMenu");
   const body = document.body;
 
-  menuIcon.addEventListener("click", function () {
+  menuIcon.addEventListener("click", function (e) {
+    e.stopPropagation();
     navMenu.classList.toggle("show-menu");
     menuIcon.classList.toggle("active");
     body.classList.toggle("menu-open");
   });
 
-  // Close menu when clicking on a nav link
+  // Close menu when clicking a link
   const navLinks = document.querySelectorAll(".nav-link");
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
@@ -20,39 +21,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Smooth scroll for navigation links
+  // Close menu when clicking outside
+  document.addEventListener("click", function (e) {
+    if (
+      body.classList.contains("menu-open") &&
+      !navMenu.contains(e.target) &&
+      !menuIcon.contains(e.target)
+    ) {
+      navMenu.classList.remove("show-menu");
+      menuIcon.classList.remove("active");
+      body.classList.remove("menu-open");
+    }
+  });
+
+  // Smooth scrolling
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = this.getAttribute("href");
       const targetSection = document.querySelector(targetId);
       if (targetSection) {
-        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        const offsetTop = targetSection.offsetTop - 60;
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
       }
     });
   });
 
-  // Contact Form Submission
-  const contactForm = document.getElementById("contactForm");
-  contactForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const formData = {
-      name: this.name.value,
-      email: this.email.value,
-      message: this.message.value,
-    };
-
-    // Simple alert (you can integrate with EmailJS or Formspree later)
-    alert(
-      `Thank you, ${formData.name}! Your message has been received. I'll get back to you soon at ${formData.email}.`
-    );
-
-    // Clear form
-    this.reset();
-  });
-
-  // Auto-update copyright year
-  document.getElementById("current-year").textContent =
-    new Date().getFullYear();
+  // Update copyright year
+  const yearSpan = document.getElementById("current-year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 });

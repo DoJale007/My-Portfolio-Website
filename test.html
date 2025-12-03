@@ -2,88 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="test.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Israel Jale</title>
+    <link rel="stylesheet" href="test.css" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
 </head>
 
 <body>
-    <nav>
+
+    <!-- Navigation -->
+    <nav class="navbar">
         <a href="#" class="logo"><span>GeoJale.</span></a>
 
-        <div class="menu-icon" id="menuIcon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <ul id="navMenu">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+        <!-- Desktop Menu -->
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" id="hamburger">
+            <i class='bx bx-menu'></i>
+        </div>
     </nav>
 
+    <!-- Home Section -->
     <section id="home">
-        <img src="Images/seer_cropped.png" alt="Profile" class="slide-in-left">
-
+        <img src="Images/seer_cropped.png" alt="Israel Jale" class="profile-img" />
         <div class="info-box">
             <h1>Hello, I'm <span>Israel Jale</span>👋</h1>
-            <h3><span>Web Developer💻 ‖ Geospatial Technician 🌍</span></h3>
+            <h3><span>Web Developer | Geospatial Technician</span></h3>
             <p>I'm a Junior Backend Web Developer specializing in building robust server-side applications and managing
                 databases.</p>
-        </div>
-
-        <div class="btn-box">
-            <a href="./CV/My Resume.pdf" target="_blank">Download CV</a>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="info-box">
-            <h1><span>About Me</span></h1>
-            <p>With a background in Geospatial Science and Resource Development, I'm inspired to transition into the
-                ever growing field of Web Development as it relates to spatial science.</p>
-            <p>Currently, I'm enrolled in the 4 month comprehensive GROW Web Developer Program centered on Python
-                programming organized by Generation Ghana in partnership with MEST.</p>
-        </div>
-    </section>
-
-    <div class="first-flex">
-        <div class="skillsdiv">
-            <h2><span>Skills</span></h2>
-            <div class="skills">
-                <ul>
-                    <li><span><i class='bx bx-chevron-right'></i>HTML</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i>CSS</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i>Bootstrap</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i>JavaScript</span></li>
-                </ul>
-                <ul>
-                    <li><span><i class='bx bx-chevron-right'></i>Python</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i>FastAPI</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i>Git & GitHub</span></li>
-                    <li><span><i class='bx bx-chevron-right'></i>ArcGIS</span></li>
-                </ul>
+            <div class="btn-box">
+                <a href="./CV/My Resume.pdf" target="_blank">Download CV</a>
             </div>
         </div>
-    </div>
+    </section>
 
+    <!-- About Anchor -->
+    <div id="about" class="section-anchor"></div>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <h2><span>Skills</span></h2>
+        <div class="skills-grid">
+            <ul>
+                <li><i class='bx bx-chevron-right'></i> HTML</li>
+                <li><i class='bx bx-chevron-right'></i> CSS</li>
+                <li><i class='bx bx-chevron-right'></i> Bootstrap</li>
+                <li><i class='bx bx-chevron-right'></i> JavaScript</li>
+            </ul>
+            <ul>
+                <li><i class='bx bx-chevron-right'></i> Python</li>
+                <li><i class='bx bx-chevron-right'></i> FastAPI</li>
+                <li><i class='bx bx-chevron-right'></i> Git & GitHub</li>
+                <li><i class='bx bx-chevron-right'></i> ArcGIS</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
     <section id="projects">
         <h2>My Projects</h2>
         <div class="project-container">
             <a href="https://www.afoakwahernestenterprise.com/" target="_blank" class="project-card-link">
                 <div class="project-card">
-                    <div class="card-image-box">
-                        <img src="Images/sleek.png" alt="Business site" class="project-image">
-                    </div>
+                    <img src="Images/sleek.png" alt="Company Website" class="project-image" />
                     <div class="card-info-box">
                         <h3>Company Website</h3>
-                        <p>A sleek responsive website that represents the business activities of Afoakwah Ernest
-                            Enterprise. [Stack-HTML/CSS/JS]</p>
+                        <p>A sleek responsive business site.<br>[HTML/CSS/JS]</p>
                     </div>
                 </div>
             </a>
@@ -91,69 +82,55 @@
             <a href="https://github.com/DoJale007/Building-A-Product-Landing-Page.git" target="_blank"
                 class="project-card-link">
                 <div class="project-card">
-                    <div class="card-image-box">
-                        <img src="Images/medifind.png" alt="MediFind Project Thumbnail" class="project-image">
-                    </div>
+                    <img src="Images/medifind.png" alt="MediFind" class="project-image" />
                     <div class="card-info-box">
                         <h3>MediFind Project</h3>
-                        <p>A web app that allows patients to easily access medication from nearby pharmacies.
-                            [Stack-FastAPI/NiceGUI]</p>
+                        <p>Pharmacy locator web app.<br>[FastAPI/NiceGUI]</p>
                     </div>
                 </div>
             </a>
 
             <a href="https://github.com/DoJale007/My-Portfolio-Website.git" target="_blank" class="project-card-link">
                 <div class="project-card">
-                    <div class="card-image-box">
-                        <img src="Images/portfolio_thumbnail.png" alt="Portfolio site" class="project-image">
-                    </div>
+                    <img src="Images/portfolio_thumbnail.png" alt="Portfolio" class="project-image" />
                     <div class="card-info-box">
                         <h3>Portfolio Website</h3>
-                        <p>A simple responsive portfolio website built with HTML and CSS, portraying a clean project
-                            layout.</p>
+                        <p>Clean responsive portfolio with modern design.</p>
                     </div>
                 </div>
             </a>
         </div>
     </section>
 
+    <!-- Footer with Contact Form -->
     <footer id="main-footer">
         <div id="contact">
             <h2>Contact Me</h2>
 
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" name="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-                </div>
+            <form class="contact-form" action="https://formspree.io/f/your-id" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <input type="tel" name="phone" placeholder="Your Phone" />
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
 
             <div class="contact-info">
-                <p><i class='bx bxs-envelope'></i> Email: <a
-                        href="mailto:israeljale98@gmail.com">israeljale98@gmail.com</a></p>
-                <p><i class='bx bxs-phone-call'></i> Phone: <a href="tel:+233598818802">+233 (0) 59-881-8802</a></p>
+                <p><i class='bx bxs-envelope'></i> <a href="mailto:israeljale98@gmail.com">israeljale98@gmail.com</a>
+                </p>
+                <p><i class='bx bxs-phone-call'></i> <a href="tel:+233598818802">+233 (0) 59-881-8802</a></p>
             </div>
 
             <div class="social-icons-container">
-                <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="social-link"><i
+                <a href="https://www.linkedin.com/in/israel-jale/" target="_blank"><i
                         class='bx bxl-linkedin-square'></i></a>
-                <a href="https://wa.me/233571570126" target="_blank" class="social-link"><i
-                        class='bx bxl-whatsapp'></i></a>
-                <a href="https://www.facebook.com/your-profile" target="_blank" class="social-link"><i
-                        class='bx bxl-facebook-square'></i></a>
-                <a href="https://github.com/dashboard" target="_blank" class="social-link"><i
-                        class='bx bxl-github'></i></a>
+                <a href="https://wa.me/233571570126" target="_blank"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://github.com/DoJale007" target="_blank"><i class='bx bxl-github'></i></a>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>© <span id="current-year">2021</span> Israel Jale. All Rights Reserved.</p>
+            <p>© <span id="current-year"></span> Israel Jale. All Rights Reserved.</p>
         </div>
     </footer>
 
