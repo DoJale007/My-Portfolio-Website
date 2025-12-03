@@ -11,10 +11,10 @@
     --second-background: rgb(21, 21, 21);
     --form-bg: rgba(30, 30, 30, 0.6);
     --input-border: rgba(255, 255, 255, 0.2);
+    --input-focus: #07aeea;
 }
 
-/* keyframe for image (under header) sliding in from the left -100% off screen to current position 0 */
-
+/* Keyframe animations */
 @keyframes slideInFromLeft {
     0% {
         transform: translateX(-100%);
@@ -26,9 +26,6 @@
         opacity: 1;
     }
 }
-
-
-/* keyframe for info- div (under header image) sliding in from the right 100% off screen to current position 0 */
 
 @keyframes slideInFromRight {
     0% {
@@ -75,12 +72,37 @@ nav {
     -webkit-text-fill-color: transparent;
 }
 
+/* Hamburger Menu Icon */
+.menu-icon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.menu-icon span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s ease;
+    border-radius: 2px;
+}
+
+/* Navigation Menu */
 nav ul {
     display: flex;
     align-items: center;
     gap: 2em;
     flex-wrap: wrap;
     margin-left: 50px;
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
 }
 
 nav ul a {
@@ -124,7 +146,6 @@ section {
 .slide-in-left {
     animation: slideInFromLeft 3s ease-out forwards;
 }
-
 
 .info-box {
     display: flex;
@@ -182,14 +203,8 @@ section {
     color: white;
 }
 
-
-
-.about-box {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    min-height: 100vh;
-    padding: 2em 10%;
+#about {
+    padding-top: 0;
 }
 
 .first-flex {
@@ -236,7 +251,7 @@ section {
     list-style: none;
 }
 
-.skills ul li{
+.skills ul li {
     margin-bottom: 20px;
 }
 
@@ -246,7 +261,6 @@ section {
     gap: 0.5em;
     font-size: 1.1em;
     transition: 0.3s ease-in-out;
-    
 }
 
 .skills ul li span:hover {
@@ -320,7 +334,6 @@ section {
 
 .card-info-box {
     flex-basis: 30%;
-    /* Info box takes up 30% of the card height */
     padding: 1.5em;
     display: flex;
     flex-direction: column;
@@ -331,7 +344,7 @@ section {
 .card-info-box h3 {
     font-size: 1.5rem;
     margin-bottom: 0.2em;
-    background-image: linear-gradient(#2bf598);
+    background-image: linear-gradient(to right, #07aeea, #2bf598);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -339,52 +352,6 @@ section {
 .card-info-box p {
     font-size: 1rem;
     opacity: 0.8;
-}
-
-#main-footer {
-    background-color: var(--background);
-    color: white;
-    text-align: center;
-    padding: 2em 10%;
-}
-
-#main-footer h2 {
-    font-weight: bold;
-    font-size: 50px;
-    margin-bottom: 30px;
-    color: white;
-    text-align: center;
-    background-image: linear-gradient(to right, #07aeea, #2bf598);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-#contact {
-    padding-bottom: 2em;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 1em;
-    margin-top: 1em;
-}
-
-.contact-info p {
-    text-decoration: none;
-    color: white;
-    font-size: 1.5rem;
-}
-
-.contact-info i {
-    font-size: 1.5rem;
-    background-image: linear-gradient(#2bf598);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.contact-info p a {
-    text-decoration: none;
-    color: #f2f2f2;
 }
 
 /* Contact Form Styles */
@@ -429,7 +396,7 @@ section {
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background: #2bf597c0;
+    background: linear-gradient(to right, #07aeea, #2bf598);
     border: none;
     border-radius: 5px;
     color: white;
@@ -437,7 +404,6 @@ section {
     font-weight: 600;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-family: "Nata Sans", sans-serif;
 }
 
 .submit-btn:hover {
@@ -445,6 +411,56 @@ section {
     box-shadow: 0 5px 15px rgba(43, 245, 152, 0.3);
 }
 
+#main-footer {
+    background-color: var(--background);
+    color: white;
+    text-align: center;
+    padding: 2em 10%;
+}
+
+#main-footer h2 {
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: white;
+    text-align: center;
+    background-image: linear-gradient(to right, #07aeea, #2bf598);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#contact {
+    padding-bottom: 2em;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+.contact-info {
+    margin-top: 2em;
+}
+
+.contact-info p {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.contact-info i {
+    font-size: 1.5rem;
+    background-image: linear-gradient(to right, #07aeea, #2bf598);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-info p a {
+    text-decoration: none;
+    color: #f2f2f2;
+}
 
 .social-icons-container {
     display: flex;
@@ -462,7 +478,7 @@ section {
 .social-link i {
     font-size: 2.5rem;
     color: white;
-    background-image: linear-gradient(#2bf598);
+    background-image: linear-gradient(to right #2bf598);
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -480,61 +496,92 @@ section {
     background: linear-gradient(to bottom, #6cff52, #3ec5ff);
 }
 
+/* Overlay when menu is open */
+body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+    backdrop-filter: blur(5px);
+}
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
-
 @media (max-width: 768px) {
-
     nav {
         padding: 1.5em 5%;
-        justify-content: flex-end;
+        justify-content: space-between;
     }
 
     .logo {
         font-size: 1.5rem;
     }
 
-    /* NEW: Hide nav links and show the hamburger icon */
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 70%;
-        height: 100%;
-        background-color: rgba(15, 15, 15, 0.95);
-        backdrop-filter: blur(10px);
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%);
-        /* Start off-screen */
-    }
-
-    nav ul.show-menu {
-        transform: translateX(0);
-        /* Slide into view */
+    .menu-icon {
         display: flex;
     }
 
-    nav ul a {
-        font-size: 2rem;
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: var(--background);
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 100px;
+        gap: 3em;
+        transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        z-index: 999;
+        margin: 0;
+        backdrop-filter: blur(10px);
     }
 
-    .menu-icon {
+    nav ul.show-menu {
+        right: 0;
+    }
+
+    /* Hamburger animation when open */
+    .menu-icon.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .menu-icon.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    nav ul li {
         display: block;
-        color: white;
+        width: 100%;
+        text-align: center;
     }
 
-    /* UPDATED: Adjust font sizes and padding for smaller screens */
+    nav ul a {
+        display: block;
+        padding: 1em 0;
+        font-size: 1.8rem;
+    }
+
     section {
         padding: 1.5em 5%;
     }
 
     #home img {
         width: 50vw;
+        margin-top: 4.5em;
     }
 
     .info-box h1 {
@@ -555,18 +602,48 @@ section {
         margin-top: 20px;
     }
 
+    .skillsdiv h2 {
+        font-size: 40px;
+    }
+
     .skills {
         flex-direction: column;
         gap: 1em;
         align-items: center;
     }
 
+    .skills ul {
+        font-size: 1.1em;
+    }
+
+    #projects h2 {
+        font-size: 40px;
+    }
+
     .project-card {
         width: 100%;
         height: auto;
+        max-width: 350px;
+    }
+
+    .contact-form {
+        padding: 1.5em;
+        margin: 1.5em auto;
+    }
+
+    .contact-info p {
+        font-size: 1.2rem;
+    }
+
+    .social-link i {
+        font-size: 2rem;
     }
 
     #main-footer {
         padding: 2em 5%;
+    }
+
+    #main-footer h2 {
+        font-size: 40px;
     }
 }
