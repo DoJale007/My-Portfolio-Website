@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap ');
 
 * {
     margin: 0;
@@ -40,6 +40,14 @@
     }
 }
 
+/* ADD: Global fix for any potential overflow */
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    /* Prevent horizontal scrolling */
+}
+
 /* Base styles */
 body {
     min-height: 100vh;
@@ -53,6 +61,8 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
+    max-width: 100vw;
+    /* ADD: Prevent overflow */
     height: 60px;
     padding: 2em 10%;
     display: flex;
@@ -80,6 +90,8 @@ nav {
     cursor: pointer;
     padding: 8px;
     z-index: 1001;
+    margin-left: auto;
+    /* ADD: Force icon to stay within container */
 }
 
 .menu-icon span {
@@ -97,7 +109,6 @@ nav ul {
     align-items: center;
     gap: 2em;
     flex-wrap: wrap;
-    margin-left: 50px;
     list-style: none;
     padding: 0;
 }
@@ -205,14 +216,15 @@ section {
     color: white;
 }
 
-
-
-.about-box {
-    display: flex;
-    flex-direction: column;
+.abt-box h2 span {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: white;
     text-align: center;
-    min-height: 100vh;
-    padding: 2em 10%;
+    background-image: linear-gradient(to right, #07aeea, #2bf598);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .first-flex {
@@ -259,7 +271,7 @@ section {
     list-style: none;
 }
 
-.skills ul li{
+.skills ul li {
     margin-bottom: 20px;
 }
 
@@ -269,7 +281,7 @@ section {
     gap: 0.5em;
     font-size: 1.1em;
     transition: 0.3s ease-in-out;
-    
+
 }
 
 .skills ul li span:hover {
@@ -317,6 +329,7 @@ section {
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     width: 450px;
     max-width: 100%;
+    /* ADD: Ensure cards don't overflow */
     height: 400px;
     overflow: hidden;
     display: flex;
@@ -625,11 +638,11 @@ body.menu-open::before {
     .menu-icon.active span:nth-child(1) {
         transform: rotate(45deg) translate(8px, 8px);
     }
-    
+
     .menu-icon.active span:nth-child(2) {
         opacity: 0;
     }
-    
+
     .menu-icon.active span:nth-child(3) {
         transform: rotate(-45deg) translate(8px, -8px);
     }
@@ -639,12 +652,12 @@ body.menu-open::before {
         right: 0;
     }
 
-    /* 3. Prevent body scroll when menu open */
+    /* Prevent body scroll when menu open */
     body.menu-open {
         overflow: hidden;
     }
-    
-    /* 4. Make nav links stack vertically */
+
+    /* Make nav links stack vertically */
     nav ul li {
         display: block;
         width: 100%;
@@ -770,6 +783,16 @@ body.menu-open::before {
 }
 
 @media (max-width: 480px) {
+
+    nav {
+        padding: 1em 3%;
+    }
+
+    /* ADD: Ensure icon stays properly positioned */
+    .menu-icon {
+        padding: 4px;
+        margin-right: 0;
+    }
 
     /* Extra small screen adjustments */
     .logo {
