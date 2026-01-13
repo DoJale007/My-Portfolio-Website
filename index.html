@@ -184,6 +184,11 @@
             <h2>Contact Me</h2>
 
             <form class="contact-form" id="contactForm">
+                <!-- Hidden fields for FormSubmit.co -->
+                <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+            
                 <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Your Name" required>
                 </div>
@@ -196,7 +201,10 @@
                 <div class="form-group">
                     <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Send Message</span>
+                    <span class="btn-loader hidden"><i class='bx bx-loader-alt bx-spin'></i></span>
+                </button>
             </form>
 
 
@@ -237,8 +245,6 @@
         </div>
     </div>
 
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <!-- JavaScript -->
     <script src="scripts.js"></script>
 </body>

@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // EmailJS Configuration (Pre-filled with your credentials)
-  emailjs.init("4qfQe-mQc1VypwhJ4");
-
-  // Popup Modal Functions
+  // Popup Modal Functions (Keep your existing popup)
   function showPopup(title, message, isSuccess = true) {
     const modal = document.getElementById("popupModal");
     const icon = document.getElementById("popupIcon");
@@ -88,38 +85,55 @@ document.addEventListener("DOMContentLoaded", function () {
     yearSpan.textContent = new Date().getFullYear();
   }
 
-  // EmailJS Contact Form
+  // FORMSUBMIT.CO CONTACT FORM  
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
+    contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const submitBtn = contactForm.querySelector(".submit-btn");
-      const originalBtnText = submitBtn.textContent;
+      const btnText = submitBtn.querySelector(".btn-text");
+      const btnLoader = submitBtn.querySelector(".btn-loader");
 
       // Show loading state
-      submitBtn.textContent = "Sending...";
+      btnText.classList.add("hidden");
+      btnLoader.classList.remove("hidden");
       submitBtn.disabled = true;
 
-      // Send email using your credentials
-      emailjs
-        .sendForm("service_5020nzv", "template_qv81d5r", contactForm)
-        .then(function (response) {
+      try {
+        // Submit to FormSubmit.co
+        const formData = new FormData(contactForm);
+
+        const response = await fetch(
+          "https://formsubmit.co/ajax/israeljale98@gmail.com",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+            },
+            body: formData,
+          }
+        );
+
+        if (response.ok) {
+          // Show success popup
           showPopup(
             "Success!",
             "Your message has been sent. I will get back to you soon!"
           );
           contactForm.reset();
-        })
-        .catch(function (error) {
-          showPopup("Error!", "Something went wrong. Please try again.", false);
-          console.error("EmailJS error:", error);
-        })
-        .finally(function () {
-          // Reset button
-          submitBtn.textContent = originalBtnText;
-          submitBtn.disabled = false;
-        });
+        } else {
+          throw new Error("Submission failed");
+        }
+      } catch (error) {
+        showPopup("Error!", "Something went wrong. Please try again.", false);
+        console.error("FormSubmit error:", error);
+      } finally {
+        // Reset button
+        btnText.classList.remove("hidden");
+        btnLoader.classList.add("hidden");
+        submitBtn.disabled = false;
+      }
     });
   }
 });

@@ -845,3 +845,53 @@ body.menu-open::before {
         font-size: 1.8rem;
     }
 }
+
+/* --- FORM SUBMIT BUTTON LOADING STYLES --- */
+
+.btn-text {
+    display: inline-block;
+    transition: opacity 0.3s ease;
+}
+
+.btn-loader {
+    display: none;
+    font-size: 1.2rem;
+}
+
+.btn-loader i {
+    animation: spin 1s linear infinite;
+}
+
+/* Hidden state for loading elements */
+.btn-text.hidden {
+    display: none !important;
+}
+
+.btn-loader.hidden {
+    display: none !important;
+}
+
+/* Loading state for button */
+.submit-btn.loading .btn-text {
+    display: none;
+}
+
+.submit-btn.loading .btn-loader {
+    display: inline-block;
+}
+
+/* Add spinner animation */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Ensure button text is white during loading */
+.submit-btn.loading {
+    color: white;
+}
